@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Registration extends AppCompatActivity {
 
-    private EditText fname,lname, email, password;
+    private EditText email, password;
     private Button btnregister;
     private TextView tvloginp;
     private FirebaseAuth mAuth;
@@ -33,8 +33,8 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         email = findViewById(R.id.email);
-        fname = findViewById(R.id.fname);
-        lname = findViewById(R.id.lname);
+//        fname = findViewById(R.id.fname);
+//        lname = findViewById(R.id.lname);
         password = findViewById(R.id.password);
         btnregister = findViewById(R.id.btnregister);
         tvloginp = findViewById(R.id.tvloginp);
@@ -51,12 +51,12 @@ public class Registration extends AppCompatActivity {
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String txtFname = fname.getText().toString();
-                String txtLname = lname.getText().toString();
+//                String txtFname = fname.getText().toString();
+//                String txtLname = lname.getText().toString();
                 String txtEmail = email.getText().toString();
                 String txtPassword = password.getText().toString();
 
-                if (TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword) || TextUtils.isEmpty(txtFname) || TextUtils.isEmpty(txtLname)){
+                if (TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword)){
                     Toast.makeText(Registration.this, "Empty credentials!", Toast.LENGTH_SHORT).show();
                 } else if (txtPassword.length() < 6){
                     Toast.makeText(Registration.this, "Password too short!", Toast.LENGTH_SHORT).show();
@@ -104,7 +104,7 @@ public class Registration extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(Registration.this, "Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Registration.this,Login.class));
+                    startActivity(new Intent(Registration.this,MainActivity.class));
                 }
                 else{
                     Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();

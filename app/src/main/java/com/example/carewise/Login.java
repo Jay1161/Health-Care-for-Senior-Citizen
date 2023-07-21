@@ -165,7 +165,7 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    startActivity(new Intent(Login.this,MainActivity.class));
+                                    startActivity(new Intent(Login.this,MainActivity2.class));
                                 }else {
                                     Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -186,7 +186,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!= null){
-            startActivity(new Intent(Login.this,MainActivity.class));
+            startActivity(new Intent(Login.this,MainActivity2.class));
         }
         FirebaseAuth.getInstance().signOut();
     }
