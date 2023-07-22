@@ -142,7 +142,7 @@ public class Login extends AppCompatActivity {
 
                     editor.putString("name","true");
                     editor.apply();
-                    startActivity(new Intent(Login.this,MainActivity2.class));
+                    startActivity(new Intent(Login.this,MainActivity.class));
                 }
                 else{
                     Toast.makeText(Login.this, "Wrong Password/Email", Toast.LENGTH_SHORT).show();
