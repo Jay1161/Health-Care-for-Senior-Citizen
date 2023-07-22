@@ -8,23 +8,23 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/btnlogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="Logout"
-        android:textSize="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:backgroundTint="@color/black"
-        android:id="@+id/btnlogout"></Button>
+        android:text="Logout"
+        android:textSize="20dp"></Button>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Bitchies"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        android:textStyle="bold"
-        android:textSize="30dp"></TextView>
+        android:text="Welcome Bitchies"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
 
 </LinearLayout>
