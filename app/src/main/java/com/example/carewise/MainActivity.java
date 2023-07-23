@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    AboutFragment aboutFragment = new AboutFragment();
-    DashboardFragment dashboardFragment = new DashboardFragment();
-    HomeFragment homeFragment = new HomeFragment();
-    NotificationFragment notificationFragment = new NotificationFragment();
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
 
         Fragment selectedFragment = null;
@@ -56,6 +52,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     };
-
-
 }

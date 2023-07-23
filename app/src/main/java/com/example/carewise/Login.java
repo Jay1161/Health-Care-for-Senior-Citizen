@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -41,7 +42,9 @@ public class Login extends AppCompatActivity {
     private SignInButton google;
     private TextView txtsignup;
     private FirebaseAuth mAuth;
-    private FirebaseAuth mUser;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
     private GoogleSignInClient client;
 
     public static final String Shared_PREFS = "sharedPrefs";
@@ -60,12 +63,13 @@ public class Login extends AppCompatActivity {
         txtsignup = findViewById(R.id.txtsignup);
 
         mAuth = FirebaseAuth.getInstance();
-
+        preferences = getSharedPreferences("User", MODE_PRIVATE);
+        editor = preferences.edit();
         //FirebaseMessaging.getInstance().subscribeToTopic("Notification");
         txtsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this,Registration.class));
+                startActivity(new Intent(Login.this, Registration.class));
             }
         });
 
@@ -73,19 +77,19 @@ public class Login extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int Right = 2;
-                if (event.getAction() == MotionEvent.ACTION_UP){
-                    if (event.getRawX()>=password.getRight()-password.getCompoundDrawables()[Right].getBounds().width()){
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= password.getRight() - password.getCompoundDrawables()[Right].getBounds().width()) {
                         int selection = password.getSelectionEnd();
-                        if (passwordVisibility){
+                        if (passwordVisibility) {
                             //set drawable image here
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.baseline_visibility_off_24,0);
+                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.baseline_visibility_off_24, 0);
 
                             //for Hide password
                             password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                             passwordVisibility = false;
-                        } else{
+                        } else {
                             //show password here
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.baseline_visibility_24,0);
+                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.baseline_visibility_24, 0);
 
                             //for Show password
                             password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
@@ -106,10 +110,10 @@ public class Login extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(Login.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
                 } else {
-                    loginUser(txt_email , txt_password);
+                    loginUser(txt_email, txt_password);
                 }
             }
         });
@@ -118,12 +122,12 @@ public class Login extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        client = GoogleSignIn.getClient(this,options);
+        client = GoogleSignIn.getClient(this, options);
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = client.getSignInIntent();
-                startActivityForResult(i,1234);
+                startActivityForResult(i, 1234);
 
             }
         });
@@ -131,42 +135,52 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-
+                if (task.isSuccessful()) {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     //Email Password remember me
                     SharedPreferences sharedPreferences = getSharedPreferences(Shared_PREFS, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString("name","true");
+                    editor.putString("email", user.getEmail());
                     editor.apply();
-                    startActivity(new Intent(Login.this,MainActivity.class));
-                }
-                else{
+                    startActivity(new Intent(Login.this, MainActivity.class));
+                    finish();
+
+
+                 /*   if (user != null) {
+                        // Name, email address
+                        String name = user.getDisplayName();
+                        String email = user.getEmail();
+
+                        Log.d("TAG1010", String.valueOf(user.getEmail()));
+                    }*/
+                } else {
                     Toast.makeText(Login.this, "Wrong Password/Email", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1234){
+        if (requestCode == 1234) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
-                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
+                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
                 FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-                                    startActivity(new Intent(Login.this,MainActivity2.class));
-                                }else {
+                                if (task.isSuccessful()) {
+                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                } else {
                                     Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
@@ -181,14 +195,14 @@ public class Login extends AppCompatActivity {
 
     }
 
-    @Override
+  /*  @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!= null){
-            startActivity(new Intent(Login.this,MainActivity2.class));
+            startActivity(new Intent(Login.this,MainActivity.class));
         }
         FirebaseAuth.getInstance().signOut();
-    }
+    }*/
 
 }
