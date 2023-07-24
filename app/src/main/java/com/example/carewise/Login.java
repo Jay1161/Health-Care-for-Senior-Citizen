@@ -42,9 +42,6 @@ public class Login extends AppCompatActivity {
     private SignInButton google;
     private TextView txtsignup;
     private FirebaseAuth mAuth;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-
     private GoogleSignInClient client;
 
     public static final String Shared_PREFS = "sharedPrefs";
@@ -63,8 +60,9 @@ public class Login extends AppCompatActivity {
         txtsignup = findViewById(R.id.txtsignup);
 
         mAuth = FirebaseAuth.getInstance();
-        preferences = getSharedPreferences("User", MODE_PRIVATE);
-        editor = preferences.edit();
+
+        checkBox();
+
         //FirebaseMessaging.getInstance().subscribeToTopic("Notification");
         txtsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,10 +108,10 @@ public class Login extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
+                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(Login.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
                 } else {
-                    loginUser(txt_email, txt_password);
+                    loginUser(txt_email , txt_password);
                 }
             }
         });
@@ -122,65 +120,66 @@ public class Login extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        client = GoogleSignIn.getClient(this, options);
+        client = GoogleSignIn.getClient(this,options);
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = client.getSignInIntent();
-                startActivityForResult(i, 1234);
+                startActivityForResult(i,1234);
 
             }
         });
 
+
+    }
+
+    private void checkBox() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Shared_PREFS,MODE_PRIVATE);
+        String check = sharedPreferences.getString("name","");
+        if (check.equals("true")){
+//            Toast.makeText(MainActivity.this, "Logged in Successful", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Login.this,MainActivity.class));
+            finish();
+        }
     }
 
     private void loginUser(String email, String password) {
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(task.isSuccessful()){
+
                     //Email Password remember me
                     SharedPreferences sharedPreferences = getSharedPreferences(Shared_PREFS, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString("email", user.getEmail());
+                    editor.putString("name","true");
                     editor.apply();
-                    startActivity(new Intent(Login.this, MainActivity.class));
-                    finish();
-
-
-                    if (user != null) {
-                        // Name, email address
-                        String name = user.getDisplayName();
-                        String email = user.getEmail();
-
-                        Log.d("TAG1010", String.valueOf(user.getEmail()));
-                    }
-                } else {
+                    startActivity(new Intent(Login.this,MainActivity.class));
+                }
+                else{
                     Toast.makeText(Login.this, "Wrong Password/Email", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1234) {
+        if(requestCode == 1234){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
-                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
                 FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    startActivity(new Intent(Login.this, MainActivity.class));
-                                } else {
+                                if(task.isSuccessful()){
+                                    startActivity(new Intent(Login.this,MainActivity.class));
+                                }else {
                                     Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
@@ -204,4 +203,5 @@ public class Login extends AppCompatActivity {
         }
         FirebaseAuth.getInstance().signOut();
     }
+
 }
