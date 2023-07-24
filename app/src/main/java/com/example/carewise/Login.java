@@ -150,13 +150,13 @@ public class Login extends AppCompatActivity {
                     finish();
 
 
-                 /*   if (user != null) {
+                    if (user != null) {
                         // Name, email address
                         String name = user.getDisplayName();
                         String email = user.getEmail();
 
                         Log.d("TAG1010", String.valueOf(user.getEmail()));
-                    }*/
+                    }
                 } else {
                     Toast.makeText(Login.this, "Wrong Password/Email", Toast.LENGTH_SHORT).show();
                 }
@@ -195,7 +195,7 @@ public class Login extends AppCompatActivity {
 
     }
 
-  /*  @Override
+    @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -203,6 +203,5 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(Login.this,MainActivity.class));
         }
         FirebaseAuth.getInstance().signOut();
-    }*/
-
+    }
 }
