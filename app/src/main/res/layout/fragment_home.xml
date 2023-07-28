@@ -1,73 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="?attr/actionBarSize"
     tools:context=".Fragment.HomeFragment">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="349dp"
-        android:layout_height="77dp"
-        android:background="#D6613D"
-        android:text="      Reach Emergency contact"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133"
-        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="349dp"
-        android:layout_height="77dp"
-        android:background="#E6445D"
-        android:text="Sound Alarm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.109"
-        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="349dp"
-        android:layout_height="77dp"
-        android:background="#0C8BF1"
-        android:text=" Emergency Health Information"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.167"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/btnlogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/black"
+            android:text="Logout"
+            android:textSize="15dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="16dp" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#C0DBDB"
-        android:text="Logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        <Button
+            android:id="@+id/reach_emerg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#FF3D00"
+            android:text="Reach Emergency contact"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnlogout"
+            android:padding="15dp"
+            tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="349dp"
-        android:layout_height="77dp"
-        android:background="#33C2C8"
-        android:text=" Appointment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.502"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#FF3D00"
+            android:text="Sound Alarm"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/reach_emerg"
+            android:padding="15dp"
+            tools:ignore="MissingConstraints" />
 
+        <Button
+            android:id="@+id/health_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#0C8BF1"
+            android:text="Emergency Health Information"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/alarm"
+            android:padding="15dp"
+            tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/appointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#00B0FF"
+            android:text=" Appointment"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/health_info"
+            android:padding="15dp"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
