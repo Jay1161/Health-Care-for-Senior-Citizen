@@ -15,6 +15,18 @@
         android:theme="@style/Theme.Carewise"
         tools:targetApi="31">
         <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HealthInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlaramActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReachEmergencyActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -23,15 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Registration"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
