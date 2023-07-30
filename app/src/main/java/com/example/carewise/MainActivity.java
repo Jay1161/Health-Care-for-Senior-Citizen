@@ -15,6 +15,7 @@ import com.example.carewise.Fragment.AboutFragment;
 import com.example.carewise.Fragment.DashboardFragment;
 import com.example.carewise.Fragment.HomeFragment;
 import com.example.carewise.Fragment.NotificationFragment;
+import com.example.carewise.Fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             selectedFragment = new NotificationFragment();
         } else if (itemId == R.id.navigation_aboutus) {
             selectedFragment = new AboutFragment();
+        } else if (itemId == R.id.navigation_profile) {
+            selectedFragment = new ProfileFragment();
         }
         // It will help to replace the
         // one fragment to other.

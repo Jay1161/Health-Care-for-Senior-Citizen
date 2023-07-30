@@ -87,19 +87,21 @@ public class AppointmentActivity extends AppCompatActivity {
                     user.put("Time", Time);
 
                     // Generate a unique key for the booking entry
-                    String key = bookingsRef.push().getKey();
+                    String key = email.getText().toString();
+                    String hash = bookingsRef.push().getKey();
+
 
                     // Write the selected date and time under the generated key in the "bookings" node
-                    bookingsRef.child(key).child("Name").setValue(Patientname);
-                    bookingsRef.child(key).child("Patient age").setValue(Patientage);
-                    bookingsRef.child(key).child("Email").setValue(Patientemail);
-                    bookingsRef.child(key).child("Number").setValue(Patientnumber);
-                    bookingsRef.child(key).child("Address").setValue(Patientaddress);
-                    bookingsRef.child(key).child("Relative Name").setValue(Relativename);
-                    bookingsRef.child(key).child("Relative Number").setValue(Relativenumber);
-                    bookingsRef.child(key).child("Patient Problem").setValue(Patientproblem);
-                    bookingsRef.child(key).child("Date").setValue(Date);
-                    bookingsRef.child(key).child("Time").setValue(Time);
+                    bookingsRef.child(hash).child(key).child("Name").setValue(Patientname);
+                    bookingsRef.child(hash).child(key).child("Patient age").setValue(Patientage);
+                    bookingsRef.child(hash).child(key).child("Email").setValue(Patientemail);
+                    bookingsRef.child(hash).child(key).child("Number").setValue(Patientnumber);
+                    bookingsRef.child(hash).child(key).child("Address").setValue(Patientaddress);
+                    bookingsRef.child(hash).child(key).child("Relative Name").setValue(Relativename);
+                    bookingsRef.child(hash).child(key).child("Relative Number").setValue(Relativenumber);
+                    bookingsRef.child(hash).child(key).child("Patient Problem").setValue(Patientproblem);
+                    bookingsRef.child(hash).child(key).child("Date").setValue(Date);
+                    bookingsRef.child(hash).child(key).child("Time").setValue(Time);
 
                 }
 

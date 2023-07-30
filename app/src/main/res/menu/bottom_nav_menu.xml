@@ -20,5 +20,9 @@
         android:id="@+id/navigation_aboutus"
         android:icon="@drawable/baseline_info_24"
         android:title="About Us"></item>
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/user"
+        android:title="Profile"></item>
 
 </menu>
