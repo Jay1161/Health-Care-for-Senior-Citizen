@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Carewise"
         tools:targetApi="31">
         <activity
+            android:name=".appointment"
+            android:exported="false" />
+        <activity
             android:name=".AppointmentActivity"
             android:exported="false" />
         <activity

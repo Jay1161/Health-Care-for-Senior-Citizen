@@ -24,6 +24,7 @@
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:id="@+id/txt_about"
+                android:layout_marginTop="20dp"
                 android:gravity="center"></TextView>
 
             <TextView
@@ -41,10 +42,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/welcome_para"
-                android:text="#x2023 Welcome to Carewise, your trusted companion in providing top-notch healthcare services exclusively designed for the elderly. At Health Care for Senior Citizens, we are dedicated to ensuring the well-being and comfort of our beloved seniors, empowering them to lead a healthier and happier life."
+                android:text="Welcome to Carewise, your trusted companion in providing top-notch healthcare services exclusively designed for the elderly. At Health Care for Senior Citizens, we are dedicated to ensuring the well-being and comfort of our beloved seniors, empowering them to lead a healthier and happier life."
                 android:textSize="20dp"
                 android:padding="20dp"
                 android:layout_below="@+id/txtwelcome"
+                android:justificationMode="inter_word"
                 android:textColor="@color/black"></TextView>
 
             <TextView
@@ -64,6 +66,7 @@
                 android:id="@+id/mission_para"
                 android:text="Our mission is to cater to the unique healthcare needs of senior citizens by offering comprehensive medical services right at their doorstep. We understand the challenges that come with age, and our primary goal is to provide compassionate, reliable, and accessible healthcare solutions to seniors, ensuring they receive the attention and care they deserve."
                 android:padding="20dp"
+                android:justificationMode="inter_word"
                 android:layout_below="@+id/txtmission"
                 android:textSize="20dp"
                 android:textColor="@color/black"></TextView>
@@ -85,6 +88,7 @@
                 android:id="@+id/offer_para"
                 android:text="Doctor-on-Demand: Our innovative platform allows senior citizens to book appointments with experienced and empathetic doctors specialized in geriatric care. With just a few taps on their smartphones, seniors can connect with medical professionals who understand their specific health concerns.\n\nMedical Procedures Assistance: We understand that some medical procedures might be overwhelming for seniors. Hence, our team of trained caregivers is readily available to accompany them to medical appointments, assist during treatments, and ensure that all procedures are carried out seamlessly.\n\nEmergency Contact Services: The safety and security of our senior citizens are our topmost priorities. Our app provides an easy-to-access emergency contact feature that instantly connects them to our support team or their chosen emergency contacts, should the need arise.\n\nSound Alarm Feature: For added safety, our app comes equipped with a sound alarm function. In case of any distress or urgency, seniors can trigger the alarm, and our team will promptly respond to provide immediate assistance.\n\nComprehensive Health Details: We maintain secure and confidential health records of our senior clients. This includes their medical history, allergies, medications, and any specific health requirements. These details assist our doctors and caregivers in delivering personalized and effective healthcare services."
                 android:padding="20dp"
+                android:justificationMode="inter_word"
                 android:layout_below="@+id/offer"
                 android:textSize="20dp"
                 android:textColor="@color/black"></TextView>
@@ -106,6 +110,7 @@
                 android:id="@+id/choose_para"
                 android:text="Dedicated to Seniors: Health Care for Senior Citizens is built on a foundation of compassion and respect for the elderly. We go the extra mile to ensure our services are tailored to meet the unique needs of senior citizens.\n\nQualified Healthcare Professionals: Our team comprises skilled doctors, nurses, and caregivers who have extensive experience in geriatric care. They are not just medical experts but also empathetic individuals who prioritize the comfort and well-being of our seniors.\n\nConvenience and Accessibility: Our user-friendly app and 24/7 customer support make it convenient for seniors and their families to access our services anytime, anywhere.\n\nSafety and Security: The safety of our senior clients is non-negotiable. We have implemented stringent security measures to protect their data and ensure their trust in our services."
                 android:padding="20dp"
+                android:justificationMode="inter_word"
                 android:layout_below="@+id/Why_Choose_Us"
                 android:textSize="20dp"
                 android:textColor="@color/black"></TextView>
@@ -127,6 +132,7 @@
                 android:id="@+id/get_in_touch_para"
                 android:text="For any inquiries, feedback, or to start availing our services, please feel free to contact our customer support team. We are committed to making a positive impact on the lives of senior citizens, one healthcare service at a time.\n\nThank you for choosing Carewise. Together, let's enhance the quality of life for our seniors with the utmost care and compassion."
                 android:padding="20dp"
+                android:justificationMode="inter_word"
                 android:layout_below="@+id/get_in_touch"
                 android:textSize="20dp"
                 android:textColor="@color/black"></TextView>
