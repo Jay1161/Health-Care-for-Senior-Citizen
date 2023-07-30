@@ -4,16 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.carewise.AlaramActivity;
 import com.example.carewise.AppointmentActivity;
 import com.example.carewise.HealthInfoActivity;
@@ -28,13 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-
     Button reach_emerg, alarm, health_info, appointment,logout;
     View view;
     private FirebaseAuth mAuth;
-
-
-
+    public static final String Shared_PREFS = "sharedPrefs";
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         return fragment;
@@ -57,17 +51,24 @@ public class HomeFragment extends Fragment {
         appointment = view.findViewById(R.id.appointment);
         logout = view.findViewById(R.id.btnlogout);
 
-        mAuth = FirebaseAuth.getInstance();
-
-
-
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Logout",Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(Shared_PREFS, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString("name","");
+                editor.apply();
+
+                FirebaseAuth.getInstance().signOut();
+
+                Intent i = new Intent(getContext(), Login.class);
+                startActivity(i);
+
+                Toast.makeText(getContext(),"Logged out Successfully",Toast.LENGTH_LONG).show();
                 Log.e("TAGLOG","LogOut");
             }
+
         });
         reach_emerg.setOnClickListener(new View.OnClickListener() {
             @Override
