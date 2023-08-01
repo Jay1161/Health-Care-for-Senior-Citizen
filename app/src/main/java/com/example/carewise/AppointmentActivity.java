@@ -26,10 +26,9 @@ public class AppointmentActivity extends AppCompatActivity {
 
     private Button btnappointment;
     private EditText Patient_name,Patient_age,email,number,address,Relative_name,Relative_number,problem,appointment_date,appointment_time;
-//    private DocumentReference documentReference;
-//    private FirebaseFirestore db;
-    FirebaseAuth fauth;
     private DatabaseReference bookingsRef;
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +37,6 @@ public class AppointmentActivity extends AppCompatActivity {
         //Database Variable
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         bookingsRef = database.getReference("Bookings");
-
-//        db = FirebaseFirestore.getInstance();
-//
-//        fauth = FirebaseAuth.getInstance();
-//        String get = fauth.getCurrentUser().getEmail();
 
         btnappointment = findViewById(R.id.btnappointment);
         Patient_name = findViewById(R.id.Patient_name);
@@ -55,6 +49,11 @@ public class AppointmentActivity extends AppCompatActivity {
         problem = findViewById(R.id.problem);
         appointment_date = findViewById(R.id.appointment_date);
         appointment_time = findViewById(R.id.appointment_time);
+
+        auth = FirebaseAuth.getInstance();
+
+        String current_user = auth.getCurrentUser().getEmail();
+        Log.d("TAG1010", "onCreate: "+ current_user);
 
         btnappointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,16 +89,16 @@ public class AppointmentActivity extends AppCompatActivity {
                     String key = bookingsRef.push().getKey();
 
                     // Write the selected date and time under the generated key in the "bookings" node
-                    bookingsRef.child(key).child("Name").setValue(Patientname);
-                    bookingsRef.child(key).child("Patient age").setValue(Patientage);
-                    bookingsRef.child(key).child("Email").setValue(Patientemail);
-                    bookingsRef.child(key).child("Number").setValue(Patientnumber);
-                    bookingsRef.child(key).child("Address").setValue(Patientaddress);
-                    bookingsRef.child(key).child("Relative Name").setValue(Relativename);
-                    bookingsRef.child(key).child("Relative Number").setValue(Relativenumber);
-                    bookingsRef.child(key).child("Patient Problem").setValue(Patientproblem);
-                    bookingsRef.child(key).child("Date").setValue(Date);
-                    bookingsRef.child(key).child("Time").setValue(Time);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Name").setValue(Patientname);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Patient age").setValue(Patientage);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Email").setValue(Patientemail);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Number").setValue(Patientnumber);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Address").setValue(Patientaddress);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Relative Name").setValue(Relativename);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Relative Number").setValue(Relativenumber);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Patient Problem").setValue(Patientproblem);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Date").setValue(Date);
+                    bookingsRef.child(current_user.replace(".",",")).child(key).child("Time").setValue(Time);
 
                 }
 
