@@ -61,6 +61,8 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+//        String demo = mAuth.getCurrentUser().getEmail();
+//        Log.d("TAG1010", "Login : "+demo);
         checkBox();
 
         //FirebaseMessaging.getInstance().subscribeToTopic("Notification");
