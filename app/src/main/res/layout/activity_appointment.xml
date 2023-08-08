@@ -38,6 +38,8 @@
                         android:inputType="text"
                         android:hint="Enter Name"
                         android:textSize="20dp"
+                        android:drawableLeft="@drawable/baseline_person_24"
+                        android:drawablePadding="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp" />
@@ -53,9 +55,11 @@
                     android:id="@+id/Patient_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:hint="Enter Age"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_directions_walk_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
 
@@ -72,6 +76,8 @@
                     android:inputType="text"
                     android:hint="Email Address"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"/>
 
@@ -86,9 +92,11 @@
                 android:id="@+id/number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="phone"
                 android:hint="Enter Number"
                 android:textSize="20dp"
+                android:drawableLeft="@drawable/baseline_local_phone_24"
+                android:drawablePadding="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"/>
 
@@ -106,6 +114,8 @@
                     android:inputType="text"
                     android:hint="Enter Address"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/ic_home_black_24dp"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -122,6 +132,8 @@
                     android:inputType="text"
                     android:hint="Enter Relative Name"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -136,9 +148,11 @@
                     android:id="@+id/Relative_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:hint="Enter Relative Number"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_local_phone_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -156,6 +170,8 @@
                     android:inputType="text"
                     android:hint="Type of Health Problem"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_health_and_safety_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -170,9 +186,11 @@
                     android:id="@+id/appointment_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="date"
                     android:hint="Enter Appointment Date"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_date_range_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -187,9 +205,11 @@
                     android:id="@+id/appointment_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="datetime"
                     android:hint="Enter Appointment Time"
                     android:textSize="20dp"
+                    android:drawableLeft="@drawable/baseline_access_time_24"
+                    android:drawablePadding="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 

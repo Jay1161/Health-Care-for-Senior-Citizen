@@ -3,6 +3,7 @@ package com.example.carewise.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-import com.example.carewise.AlaramActivity;
+
 import com.example.carewise.AppointmentActivity;
 import com.example.carewise.HealthInfoActivity;
 import com.example.carewise.Login;
@@ -29,6 +30,7 @@ public class HomeFragment extends Fragment {
     View view;
     private FirebaseAuth mAuth;
     public static final String Shared_PREFS = "sharedPrefs";
+
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         return fragment;
@@ -81,8 +83,7 @@ public class HomeFragment extends Fragment {
         alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), AlaramActivity.class);
-                startActivity(i);
+
             }
         });
         health_info.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +102,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         // Inflate the layout for this fragment
         return view;
     }
+
 }
