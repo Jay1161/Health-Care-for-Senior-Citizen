@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginBottom="?attr/actionBarSize"
+    tools:openDrawer="right"
     tools:context=".Fragment.HomeFragment">
+
+<!--
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/navigation_menu"
+            app:menu="@menu/navigation_menu"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+-->
+
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,7 +79,7 @@
             android:layout_marginLeft="20dp"
             android:backgroundTint="#0C8BF1"
             android:drawableLeft="@drawable/healthinfo"
-            android:text="Emergency Health Information"
+            android:text="Health Information"
             android:layout_marginTop="30dp"
             app:layout_constraintTop_toBottomOf="@+id/alarm"
             android:padding="15dp"
@@ -85,4 +100,4 @@
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</RelativeLayout>
+</FrameLayout>
