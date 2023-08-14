@@ -6,4 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".HealthInfoActivity">
 
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Health Information Form"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Full Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintVertical_bias="0.076"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/ageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Age"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText"
+        app:layout_constraintVertical_bias="0.064"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <RadioButton
+        android:id="@+id/maleRadioButton"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="28dp"
+        android:text="Male"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/femaleRadioButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+    <RadioButton
+        android:id="@+id/femaleRadioButton"
+        android:layout_width="85dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="32dp"
+        android:text="Female"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/otherRadioButton"
+        app:layout_constraintTop_toBottomOf="@+id/ageEditText"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <RadioButton
+        android:id="@+id/otherRadioButton"
+        android:layout_width="83dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="36dp"
+        android:text="Other"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396" />
+
+    <EditText
+        android:id="@+id/bloodtypeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Blood Type"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/femaleRadioButton"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <EditText
+        android:id="@+id/AllergiesEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Allergies"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/femaleRadioButton"
+        app:layout_constraintVertical_bias="0.315" />
+
+    <EditText
+        android:id="@+id/MedicalconditionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Medical condition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AllergiesEditText"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:layout_centerHorizontal="true"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MedicalconditionEditText"
+        app:layout_constraintVertical_bias="0.35" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
