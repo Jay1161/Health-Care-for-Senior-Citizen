@@ -53,7 +53,7 @@ public class AppointmentActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         String current_user = auth.getCurrentUser().getEmail();
-//        Log.d("TAG1010", "onCreate: "+ current_user);
+        Log.d("TAG1010", "onCreate: "+ current_user);
 
         btnappointment.setOnClickListener(new View.OnClickListener() {
             @Override

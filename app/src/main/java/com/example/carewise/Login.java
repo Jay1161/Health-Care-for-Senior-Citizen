@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
     private boolean passwordVisibility;
     private Button btnlogin, btngoogle;
     private SignInButton google;
-    private TextView txtsignup;
+    private TextView txtsignup, txtmerchantlogin;
     private FirebaseAuth mAuth;
     private GoogleSignInClient client;
 
@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity {
         //btngoogle = findViewById(R.id.btngoogle);
         google = findViewById(R.id.google);
         txtsignup = findViewById(R.id.txtsignup);
+        txtmerchantlogin = findViewById(R.id.txtmerchantlogin);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -70,6 +71,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Registration.class));
+            }
+        });
+
+        txtmerchantlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Merchant_login.class));
             }
         });
 
