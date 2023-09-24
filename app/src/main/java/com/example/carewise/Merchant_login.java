@@ -40,8 +40,15 @@ package com.example.carewise;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -102,6 +109,7 @@ public class Merchant_login extends AppCompatActivity {
 
                         if (edtuser.equals(tempuser) && edtpass.equals(temppass)) {
 //                            Log.d("TAG1010", "Success: " + temppass + tempuser);
+                            addNotification();
                             Intent intent = new Intent(Merchant_login.this, Merchant_main.class);
                             startActivity(intent);
                         } else {
@@ -156,5 +164,35 @@ public class Merchant_login extends AppCompatActivity {
 */
 
 
+    }
+    private void addNotification() {
+        String chaneID = "Notification ";
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(getApplicationContext(), chaneID);
+        builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        builder.setContentTitle("Notification Title");
+        builder.setContentText("Notification Text");
+        builder.setAutoCancel(true).setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        Intent intent = new Intent(getApplicationContext(), NotificationView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("data", "Value");
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0 , intent, PendingIntent.FLAG_IMMUTABLE);
+        builder.setContentIntent(pendingIntent);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S_V2){
+            NotificationChannel notificationChannel =
+                    notificationManager.getNotificationChannel(chaneID);
+            if(notificationChannel == null){
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(chaneID,"Description",  importance);
+                notificationChannel.setLightColor(Color.GREEN);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+        notificationManager.notify(0, builder.build());
     }
 }

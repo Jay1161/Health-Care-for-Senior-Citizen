@@ -1,12 +1,18 @@
 package com.example.carewise;
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -43,6 +49,8 @@ public class Login extends AppCompatActivity {
     private TextView txtsignup, txtmerchantlogin;
     private FirebaseAuth mAuth;
     private GoogleSignInClient client;
+    String[] NEW_PERMISSION = new String[]{POST_NOTIFICATIONS};
+    private static final int REQUEST_BLUETOOTH_PERMISSION_NEW = 100;
 
     public static final String Shared_PREFS = "sharedPrefs";
 
@@ -65,7 +73,7 @@ public class Login extends AppCompatActivity {
 //        String demo = mAuth.getCurrentUser().getEmail();
 //        Log.d("TAG1010", "Login : "+demo);
         checkBox();
-
+        requestPermissionsPaired();
         //FirebaseMessaging.getInstance().subscribeToTopic("Notification");
         txtsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,6 +220,45 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(Login.this,MainActivity.class));
         }
         FirebaseAuth.getInstance().signOut();
+    }
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            for (String s : NEW_PERMISSION) {
+                if (ContextCompat.checkSelfPermission(this, s) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    private void requestPermissionsPaired() {
+        if (checkPermission()) {
+            /*Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);*/
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S_V2) {
+                requestPermissionBluetooth(NEW_PERMISSION, REQUEST_BLUETOOTH_PERMISSION_NEW);
+                //requestPermissionBluetoothNewDevice(NEW_PERMISSION);
+            }
+        }
+    }
+    private void requestPermissionBluetooth(String[] PERMISSIONS, int requestCode) {
+        ActivityCompat.requestPermissions(this, PERMISSIONS, requestCode);
+
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case REQUEST_BLUETOOTH_PERMISSION_NEW:
+                if (grantResults.length > 0 && checkPermission()) {
+                    Toast.makeText(this, "Permissions Allow", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Permissions denied", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
     }
 
 }
