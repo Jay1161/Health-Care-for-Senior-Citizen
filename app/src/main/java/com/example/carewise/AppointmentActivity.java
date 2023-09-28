@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.firestore.DocumentReference;
@@ -59,9 +60,18 @@ public class AppointmentActivity extends AppCompatActivity {
         appointment_time = findViewById(R.id.appointment_time);
 
         auth = FirebaseAuth.getInstance();
+        // Check if a user is logged in
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser == null) {
+            // No user is logged in, you can handle this case (e.g., redirect to login)
+            Toast.makeText(this, "No user is logged in.", Toast.LENGTH_SHORT).show();
+            finish(); // Finish the activity or redirect to the login activity
+            return;
+        }
 
-        String current_user = auth.getCurrentUser().getEmail();
-        Log.d("TAG1010", "onCreate: "+ current_user);
+        // The user is logged in, you can access their email
+        String current_user = currentUser.getEmail();
+        Log.d("TAG1010", "onCreate: " + current_user);
 
         btnappointment.setOnClickListener(new View.OnClickListener() {
             @Override

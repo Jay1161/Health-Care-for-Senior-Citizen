@@ -11,6 +11,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Notification" />
+        android:text="No Notification..."
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:gravity="center" />
 
 </RelativeLayout>

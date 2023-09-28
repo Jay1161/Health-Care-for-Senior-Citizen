@@ -61,7 +61,7 @@
             android:backgroundTint="#FF3D00"
             android:drawableLeft="@drawable/baseline_add_alarm_24"
             android:padding="15dp"
-            android:text="Sound Alarm"
+            android:text="Emergency Alarm"
             app:layout_constraintTop_toBottomOf="@+id/reach_emerg"
             tools:ignore="MissingConstraints" />
 
@@ -89,7 +89,7 @@
             android:backgroundTint="#00B0FF"
             android:drawableLeft="@drawable/appointment"
             android:padding="15dp"
-            android:text=" Appointment"
+            android:text=" Book Appointment"
             app:layout_constraintTop_toBottomOf="@+id/health_info"
             tools:ignore="MissingConstraints" />
 

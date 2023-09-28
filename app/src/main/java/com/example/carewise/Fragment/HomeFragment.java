@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.carewise.AlaramActivity;
 import com.example.carewise.AppointmentActivity;
 import com.example.carewise.HealthInfoActivity;
 import com.example.carewise.Login;
@@ -29,6 +30,8 @@ public class HomeFragment extends Fragment {
     Button reach_emerg, alarm, health_info, appointment,logout;
     View view;
     private FirebaseAuth mAuth;
+    private MediaPlayer mediaPlayer;
+
     public static final String Shared_PREFS = "sharedPrefs";
 
     public static HomeFragment newInstance(String param1, String param2) {
@@ -75,6 +78,7 @@ public class HomeFragment extends Fragment {
         reach_emerg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(getContext(), ReachEmergencyActivity.class);
                 startActivity(i);
             }
@@ -83,6 +87,17 @@ public class HomeFragment extends Fragment {
         alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                // Initialize MediaPlayer
+//                mediaPlayer = MediaPlayer.create(getContext(), R.raw.danger_alarm);
+//
+//                // Start playing the alarm sound
+//                if (mediaPlayer != null) {
+//                    mediaPlayer.start();
+//                }
+
+                // Add an intent to navigate to the alarm page
+                Intent intent = new Intent(getContext(), AlaramActivity.class);
+                startActivity(intent);
 
             }
         });
