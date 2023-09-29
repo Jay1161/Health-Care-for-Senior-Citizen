@@ -87,13 +87,13 @@ public class HomeFragment extends Fragment {
         alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                // Initialize MediaPlayer
-//                mediaPlayer = MediaPlayer.create(getContext(), R.raw.danger_alarm);
-//
-//                // Start playing the alarm sound
-//                if (mediaPlayer != null) {
-//                    mediaPlayer.start();
-//                }
+                // Initialize MediaPlayer
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.danger_alarm);
+
+                // Start playing the alarm sound
+                if (mediaPlayer != null) {
+                    mediaPlayer.start();
+                }
 
                 // Add an intent to navigate to the alarm page
                 Intent intent = new Intent(getContext(), AlaramActivity.class);
