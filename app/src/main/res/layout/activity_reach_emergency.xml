@@ -9,19 +9,19 @@
     tools:ignore="MissingClass">
 
     <!-- Toolbar/Header -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:title="Emergency Contacts"
-        android:theme="?attr/actionBarTheme" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="?attr/colorPrimary"-->
+<!--        android:title="Emergency Contacts"-->
+<!--        android:theme="?attr/actionBarTheme" />-->
 
     <!-- List of Emergency Contacts -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="16dp"
         android:clipToPadding="false"

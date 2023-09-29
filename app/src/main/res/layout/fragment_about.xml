@@ -82,15 +82,15 @@
                 android:textColor="@color/black"></TextView>
 
             <TextView
+                android:id="@+id/offer_para"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/offer_para"
-                android:text="Doctor-on-Demand: Our innovative platform allows senior citizens to book appointments with experienced and empathetic doctors specialized in geriatric care. With just a few taps on their smartphones, seniors can connect with medical professionals who understand their specific health concerns.\n\nMedical Procedures Assistance: We understand that some medical procedures might be overwhelming for seniors. Hence, our team of trained caregivers is readily available to accompany them to medical appointments, assist during treatments, and ensure that all procedures are carried out seamlessly.\n\nEmergency Contact Services: The safety and security of our senior citizens are our topmost priorities. Our app provides an easy-to-access emergency contact feature that instantly connects them to our support team or their chosen emergency contacts, should the need arise.\n\nSound Alarm Feature: For added safety, our app comes equipped with a sound alarm function. In case of any distress or urgency, seniors can trigger the alarm, and our team will promptly respond to provide immediate assistance.\n\nComprehensive Health Details: We maintain secure and confidential health records of our senior clients. This includes their medical history, allergies, medications, and any specific health requirements. These details assist our doctors and caregivers in delivering personalized and effective healthcare services."
-                android:padding="20dp"
-                android:justificationMode="inter_word"
                 android:layout_below="@+id/offer"
-                android:textSize="20dp"
-                android:textColor="@color/black"></TextView>
+                android:justificationMode="inter_word"
+                android:padding="20dp"
+                android:text="Doctor-on-Demand: Our innovative platform allows senior citizens to book appointments with experienced and empathetic doctors specialized in geriatric care. With just a few taps on their smartphones, seniors can connect with medical professionals who understand their specific health concerns.\n\nMedical Procedures Assistance: We understand that some medical procedures might be overwhelming for seniors. Hence, our team of trained caregivers is readily available to accompany them to medical appointments, assist during treatments, and ensure that all procedures are carried out seamlessly.\n\nEmergency Contact Services: The safety and security of our senior citizens are our topmost priorities. Our app provides an easy-to-access emergency contact feature that instantly connects them to our support team or their chosen emergency contacts, should the need arise.\n\nSound Alarm Feature: For added safety, our app comes equipped with a sound alarm function. In case of any distress or urgency, seniors can trigger the alarm, and our team will promptly respond to provide immediate assistance.\n\nComprehensive Health Details: We maintain secure and confidential health records of our senior clients. This includes their medical history, allergies, medications, and any specific health requirements. These details assist our doctors and caregivers in delivering personalized and effective healthcare services."
+                android:textColor="@color/black"
+                android:textSize="20dp"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -133,6 +133,17 @@
                 android:padding="20dp"
                 android:justificationMode="inter_word"
                 android:layout_below="@+id/get_in_touch"
+                android:textSize="20dp"
+                android:textColor="@color/black"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/madeby"
+                android:text="Made by:- Jay Vaja,Shubh Makwana, Harmish Sejpal"
+                android:padding="20dp"
+                android:justificationMode="inter_word"
+                android:layout_below="@+id/get_in_touch_para"
                 android:textSize="20dp"
                 android:textColor="@color/black"></TextView>
 

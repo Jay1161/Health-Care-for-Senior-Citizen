@@ -20,9 +20,9 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
 
-    <item
-        android:id="@+id/navigation_aboutus"
-        android:icon="@drawable/baseline_info_24"
-        android:title="About Us"></item>
+<!--    <item-->
+<!--        android:id="@+id/navigation_aboutus"-->
+<!--        android:icon="@drawable/baseline_info_24"-->
+<!--        android:title="About Us"></item>-->
 
 </menu>
