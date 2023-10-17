@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
         //btngoogle = findViewById(R.id.btngoogle);
         google = findViewById(R.id.google);
         txtsignup = findViewById(R.id.txtsignup);
-        txtmerchantlogin = findViewById(R.id.txtmerchantlogin);
+//        txtmerchantlogin = findViewById(R.id.txtmerchantlogin);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -82,12 +82,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        txtmerchantlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Login.this, Merchant_login.class));
-            }
-        });
+//        txtmerchantlogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Login.this, Merchant_login.class));
+//            }
+//        });
 
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override

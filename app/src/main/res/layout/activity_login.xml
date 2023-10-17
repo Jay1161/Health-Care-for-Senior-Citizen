@@ -68,17 +68,17 @@
                             android:textSize="20sp"
                             android:textStyle="bold"></TextView>
 
-                        <TextView
-                            android:id="@+id/txtmerchantlogin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="4dp"
-                            android:text="Merchant Login"
-                            android:textColor="@color/black"
-                            android:layout_below="@+id/txtsignup"
-                            android:textSize="20sp"
-                            android:textStyle="bold"></TextView>
+<!--                        <TextView-->
+<!--                            android:id="@+id/txtmerchantlogin"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_marginTop="4dp"-->
+<!--                            android:text="Merchant Login"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:layout_below="@+id/txtsignup"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold"></TextView>-->
 
                     </RelativeLayout>
 
